@@ -1,0 +1,141 @@
+@import "../../styles.less";
+
+#menu-bar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+#menu-bar li a {
+  display: block;
+  margin: 9px 15px;
+  text-decoration: none;
+  font-family: @font-headline;
+  color: @color-ft-primary;
+  // font-size: 21px;
+  opacity: 0.75;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/* menu */
+#menu-bar .menu {
+  font-family: @font-headline;
+  font-size: 18px;
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  background-color: @color-bg-primary;
+  margin-top: -12px;
+  margin-left: 9px;
+}
+
+/* menu icon */
+#menu-bar .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  // float: right;
+  padding: 28px 6px;
+  position: relative;
+  user-select: none;
+}
+
+#menu-bar .menu-icon .nav-icon {
+  background-color: @color-ln-primary;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background 0.3s ease-out;
+  width: 18px;
+}
+
+#menu-bar .menu-icon .nav-icon:before,
+#menu-bar .menu-icon .nav-icon:after {
+  background-color: @color-ln-primary;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+#menu-bar .menu-icon .nav-icon:before {
+  top: 5px;
+}
+
+#menu-bar .menu-icon .nav-icon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+#menu-bar .menu-btn {
+  display: none;
+}
+
+#menu-bar .menu-btn:checked~.menu {
+  max-height: 240px;
+}
+
+#menu-bar .menu-btn:checked~.menu-icon .nav-icon {
+  background: transparent;
+}
+
+#menu-bar .menu-btn:checked~.menu-icon .nav-icon:before {
+  transform: rotate(-45deg);
+}
+
+#menu-bar .menu-btn:checked~.menu-icon .nav-icon:after {
+  transform: rotate(45deg);
+}
+
+#menu-bar .menu-btn:checked~.menu-icon:not(.steps) .nav-icon:before,
+#menu-bar .menu-btn:checked~.menu-icon:not(.steps) .nav-icon:after {
+  top: 0;
+}
+
+#menu-bar {
+  position: absolute;
+  top: 0;
+  // right: 0;
+  // margin-right: 15px;
+  margin-top: 1px;
+}
+
+@media @desktop {
+  #menu-bar {
+    margin: 0px;
+    top: 36px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #menu-bar li {
+    float: left;
+  }
+
+  #menu-bar li a {
+
+    font-size: 21px;
+  }
+
+  #menu-bar .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+    background-color: transparent;
+    margin-top: 12px;
+  }
+
+  #menu-bar .menu-icon {
+    display: none;
+  }
+}

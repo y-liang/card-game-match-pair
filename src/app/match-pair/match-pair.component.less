@@ -1,0 +1,209 @@
+@import "../../styles.less";
+
+
+
+#match-pair {
+   position: relative;
+   margin-top: 30px;
+
+   min-width: @page-min-width;
+   overflow-x: auto;
+}
+
+#overlays {
+
+
+
+   .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+
+      text-align: center;
+
+
+      z-index: 1;
+
+
+      transform: scale(0);
+      cursor: default;
+   }
+
+   .overlay.visible {
+      transform: scale(1);
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out 0.3s;
+
+      cursor: pointer;
+
+      span {
+         background-color: @color-bg-secondary;
+         padding: 18px 30px 12px;
+         font-size: 36px;
+         border-radius: 15px;
+         width: 100%;
+         border: 3px solid @color-ft-primary;
+
+      }
+   }
+
+
+}
+
+.overlay-moment {
+   padding-top: 510px;
+
+
+   font-family: @font-headline;
+   font-size: 63px;
+   font-weight: 600;
+
+   color: @color-ft-primary;
+
+
+}
+
+
+
+
+#board {
+   display: flex;
+   flex-direction: column;
+
+
+   #counts {
+      display: flex;
+      /*flex sed inside the grid*/
+      justify-content: space-between;
+      width: 600px;
+      color: @color-ft-primary;
+
+      font-size: 24px;
+      margin: 24px auto;
+   }
+}
+
+#cards {
+   display: grid;
+   grid-template-columns: repeat(4, auto);
+   grid-gap: 18px;
+   margin: 36px 0 36px 0;
+   justify-content: center;
+   /*center all the cards, x the main axis*/
+
+   perspective: 750px;
+}
+
+/*the user is 750px away from the container, when transition it has perspective*/
+.card {
+   position: relative;
+   width: 96px;
+   height: 96px;
+
+   &:hover {
+      cursor: pointer;
+   }
+
+   &.matched {
+      animation: shake 0.2s;
+      animation-iteration-count: 2;
+
+      span {
+         animation: shake 0.2s;
+         animation-iteration-count: 8;
+      }
+   }
+
+   /* flipping the card by adding or removing the .visible class on the card */
+   &.visible .card-back {
+      transform: rotateY(-180deg);
+   }
+
+   &.visible .card-front {
+      transform: rotateY(0);
+   }
+}
+
+.card-face {
+   position: absolute;
+   /*to have both card face and card back in the same position, overlap*/
+   width: 100%;
+   height: 100%;
+
+   backface-visibility: hidden;
+   /*hide the back side*/
+
+   border-radius: 9px;
+   // border: 3px solid @color-ft-primary;
+   transition: transform 0.5s ease-in-out;
+
+   background-color: @color-ln-secondary;
+
+   &.card-back {
+      background-color: @color-ln-primary;
+   }
+
+   &.card-front {
+      transform: rotateY(180deg);
+      /*when start, this is the back*/
+   }
+}
+
+.material-icons {
+   font-size: 96px;
+   color: @color-ft-primary;
+}
+
+
+#counts {
+   font-family: @font-paragraph;
+}
+
+
+
+@keyframes shake {
+   0% {
+      transform: rotate(-5deg);
+   }
+
+   50% {
+      transform: rotate(0deg);
+   }
+
+   100% {
+      transform: rotate(5deg);
+   }
+}
+
+@media @mobile {
+   #board #counts {
+
+      width: 210px;
+   }
+
+   .material-icons {
+      font-size: 60px;
+   }
+
+
+   #overlays {
+      .overlay.visible span {
+         font-size: 36px;
+      }
+   }
+
+   .overlay-moment {
+      padding-top: 360px;
+
+   }
+
+   #cards {
+      .card {
+         width: 60px;
+         height: 60px;
+      }
+   }
+
+}

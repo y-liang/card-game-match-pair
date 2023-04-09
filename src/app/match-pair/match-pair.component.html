@@ -1,0 +1,31 @@
+<div id="match-pair" class="page-setup">
+   <div id="overlays">
+      <div *ngFor="let overlay of overlays" [ngClass]="{'overlay': true, 'visible': overlay.shown}" (click)="toggleOverlay(false, overlay.kind)">
+         <div class="overlay-moment">
+            <!-- <span>It's a {{overlay.kind}}!</span> <br><br> -->
+            <span *ngIf="overlay.kind == 'start'">Start Game</span>
+            <span *ngIf="overlay.kind == 'loss'">Game Over</span>
+            <span *ngIf="overlay.kind == 'win'">Well Done</span>
+            <br><br>
+            <!-- <span *ngIf="overlay.kind != 'start'"></span> -->
+         </div>
+      </div>
+   </div>
+   <div id="board">
+      <div id="cards">
+         <div *ngFor="let card of cards; index as i" [ngClass]="setCardClass(card)" (click)="runCard(card, i)">
+            <div class="card-face card-front">
+               <span class="material-icons">
+                  {{card.kind}}
+               </span>
+            </div>
+            <div class="card-face card-back"></div>
+         </div>
+      </div>
+      <div id="counts">
+         <div>timer <span>{{timeLeft}}</span></div>
+         <div>counter <span>{{flipCount}}</span> </div>
+      </div>
+   </div>
+</div>
+<!-- [ngClass]="'card' + ' ' + card.kind + ' ' + {'visible': card.up, 'matched': card.found}" -->

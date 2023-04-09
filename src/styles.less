@@ -1,0 +1,191 @@
+@import (css) url(https://fonts.googleapis.com/css?family=Montserrat|Josefin+Sans:300,400,500,600,700|Noto+Sans+HK:wght@500|Ma+Shan+Zheng|Quicksand:400,600&display=swap);
+
+@desktop: ~"only screen and (min-width: 720px)";
+@mobile: ~"only screen and (max-width: 720px)";
+
+@font-headline: "Josefin Sans",
+   Verdana,
+   "Montserrat",
+   "Segoe UI",
+   Tahoma,
+   sans-serif;
+@font-paragraph: "Avenir",
+   "Montserrat",
+   "Segoe UI",
+   Tahoma,
+   Verdana,
+   sans-serif;
+
+@font-mandarin: 'Ma Shan Zheng', 'Noto Sans HK', serif;
+
+
+@color-blue: rgb(55, 185, 255);
+@color-blank: rgb(255, 255, 255);
+@color-lighter: rgb(225, 243, 255);
+@color-light: rgb(200, 235, 255);
+@color-medium: rgb(123, 133, 165);
+@color-dark: rgb(30, 30, 40);
+@color-darker: rgb(20, 20, 30);
+
+@color-yellower: rgb(255, 188, 63);
+@color-yellow: rgb(255, 208, 26);
+@color-green: rgb(152, 226, 73);
+@color-greener: rgb(96, 183, 56);
+@color-pink: rgb(250, 78, 137);
+
+
+
+@color-bg-primary: var(--color-bg-primary);
+@color-bg-secondary: var(--color-bg-secondary);
+
+@color-ft-primary: var(--color-ft-primary);
+@color-ft-secondary: var(--color-ft-secondary);
+
+@color-ln-primary: var(--color-ln-primary);
+@color-ln-secondary: var(--color-ln-secondary);
+@color-ln-tertiary: var(--color-ln-tertiary);
+@color-ln-quaternary: var(--color-ln-quaternary);
+
+@page-max-width: 1260px;
+@page-min-width: 330px;
+@page-min-height: 540px;
+
+
+
+html,
+body {
+   height: 100%;
+   min-width: @page-min-width;
+   min-height: @page-min-height;
+   overflow-x: scroll;
+   margin: 0;
+   scroll-behavior: smooth;
+
+   --color-blue: rgb(55, 185, 255);
+   --color-blank: rgb(255, 255, 255);
+   --color-lighter: rgb(225, 243, 255);
+   --color-light: rgb(200, 235, 255);
+   --color-medium: rgb(123, 143, 165);
+   --color-dark: rgb(30, 30, 40);
+   --color-darker: rgb(20, 20, 30);
+
+   --color-yellower: rgb(255, 188, 63);
+   --color-yellow: rgb(255, 208, 26);
+   --color-green: rgb(152, 226, 73);
+   --color-greener: rgb(96, 183, 56);
+   --color-pink: rgb(250, 78, 137);
+
+
+
+   // dark config // need to change it in theme ts
+   // --color-bg-primary: var(--color-darker);
+   // --color-bg-secondary: var(--color-dark);
+
+   // --color-ft-primary: var(--color-lighter);
+   // --color-ft-secondary: var(--color-light);
+
+   // --color-ln-primary: var(--color-green);
+   // --color-ln-secondary: var(--color-blue);
+   // --color-ln-tertiary: var(--color-yellow);
+   // --color-ln-quaternary: var(--color-pink);
+
+
+
+   // light config // need to change it in theme ts
+   --color-bg-primary: var(--color-lighter);
+   --color-bg-secondary: var(--color-light);
+
+   --color-ft-primary: var(--color-darker);
+   --color-ft-secondary: var(--color-dark);
+
+   --color-ln-primary: var(--color-blue);
+   --color-ln-secondary: var(--color-green);
+   --color-ln-tertiary: var(--color-yellow);
+   --color-ln-quaternary: var(--color-pink);
+
+
+
+
+}
+
+
+// * background gradient * //
+.bg-gradient {
+
+   &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-width: @page-min-width;
+      min-height: @page-min-height;
+      opacity: 1;
+
+      z-index: -1;
+      background: linear-gradient(180deg, @color-bg-primary, @color-bg-secondary, @color-ln-primary, );
+      background-size: 300% 300%; // was both 400%
+      animation: gradient 15s ease infinite;
+      max-width: 100%;
+      overflow-x: hidden;
+   }
+}
+
+@keyframes gradient {
+   0% {
+      background-position: 0% 50%;
+   }
+
+   50% {
+      background-position: 100% 50%;
+   }
+
+   100% {
+      background-position: 0% 50%;
+   }
+}
+
+
+
+a {
+   text-decoration: none;
+
+   &:visited {
+      color: inherit;
+   }
+}
+
+.spacer {
+   flex: 1;
+}
+
+html,
+body {
+   height: 100%;
+}
+
+body {
+   margin: 0;
+   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+   height: 100%;
+}
+
+body {
+   margin: 0;
+   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+   height: 100%;
+}
+
+body {
+   margin: 0;
+   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
