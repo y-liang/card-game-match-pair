@@ -1,6 +1,11 @@
-<div id="header-top" class="bg-gradient">
+<div id="header-top">
    <div id="menu-wrapper">
-      <a href="" id="logo"> Match Pair </a>
+      <a href="" id="logo">
+         <div id="grid">
+            <div *ngFor="let square of squares" class="square" [id]="'square-' + square">
+            </div>
+         </div>
+      </a>
       <!-- <app-menu-bar></app-menu-bar> -->
       <app-theme-switch></app-theme-switch>
    </div>

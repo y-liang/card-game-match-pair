@@ -8,6 +8,7 @@
 
    min-width: @page-min-width;
    // overflow-x: auto;
+   background-color: @color-bg-primary;
 }
 
 #overlays {
@@ -33,7 +34,7 @@
 
    .overlay.visible {
       transform: scale(1);
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(47, 183, 52, 0.1);
       transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out 0.3s;
 
       cursor: pointer;
@@ -44,7 +45,7 @@
          font-size: 36px;
          border-radius: 15px;
          width: 100%;
-         border: 3px solid @color-ft-primary;
+         border: 3px solid @color-ln-primary;
 
       }
    }
@@ -71,6 +72,7 @@
 #board {
    display: flex;
    flex-direction: column;
+   min-height: @page-min-height;
 
 
    #counts {
@@ -159,6 +161,8 @@
 
 #counts {
    font-family: @font-paragraph;
+   color: @color-ln-primary;
+
 }
 
 
@@ -179,6 +183,7 @@
 
 @media @mobile {
    #board #counts {
+      font-size: 15px;
 
       width: 210px;
    }
