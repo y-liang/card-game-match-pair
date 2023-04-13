@@ -84,22 +84,22 @@ A memory matching card game where the player flips over two cards at a time to r
    - A loss
 
    ```
-      startCountdown() {
-         this.timer = setInterval(() => {
-            if (this.timeLeft !== undefined) this.timeLeft -= 1;
-            this.timeLeft == 0 ? this.gameOver(this.moments.loss) : null;
-         }, 1000);
-      }
+   startCountdown() {
+      this.timer = setInterval(() => {
+         if (this.timeLeft !== undefined) this.timeLeft -= 1;
+         this.timeLeft == 0 ? this.gameOver(this.moments.loss) : null;
+      }, 1000);
+   }
    ```
 
    - A win
 
    ```
-      if (this.cardsMatched.length == this.cards.length) {
-         setTimeout(() => {
-            this.gameOver(this.moments.win);
-         }, 1000); // buffer time
-      }
+   if (this.cardsMatched.length == this.cards.length) {
+      setTimeout(() => {
+         this.gameOver(this.moments.win);
+      }, 1000); // buffer time
+   }
    ```
 
 
