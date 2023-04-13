@@ -19,7 +19,7 @@ export class MatchPairComponent implements OnInit {
    // colors = ['red', 'orange', 'yellow'];
 
    // colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple', 'grey'];
-   colors = ['emoji_nature', 'emoji_symbols', 'outdoor_grill', 'deck', 'cake', 'emoji_food_beverage', 'hot_tub', 'two_wheeler'];
+   symbols = ['emoji_nature', 'emoji_symbols', 'outdoor_grill', 'deck', 'cake', 'emoji_food_beverage', 'hot_tub', 'two_wheeler'];
 
    moments = { start: 'start', loss: 'loss', win: 'win' };
 
@@ -39,8 +39,8 @@ export class MatchPairComponent implements OnInit {
    constructor() { }
 
    ngOnInit(): void {
-      let cardsOne = this.colors.map(color => ({ kind: color, up: false, found: false }));
-      let cartsTwo = this.colors.map(color => ({ kind: color, up: false, found: false }));
+      let cardsOne = this.symbols.map(symbol => ({ kind: symbol, up: false, found: false }));
+      let cartsTwo = this.symbols.map(symbol => ({ kind: symbol, up: false, found: false }));
 
       this.cards = [...cardsOne, ...cartsTwo]; // double the cards
 
@@ -125,8 +125,6 @@ export class MatchPairComponent implements OnInit {
 
 
    gameOver(result: string) {
-
-
       clearInterval(this.timer);
       this.toggleOverlay(true, result);
    }
