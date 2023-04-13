@@ -15,12 +15,12 @@ A memory matching card game where the player flips over two cards at a time to r
    Two sets of cards are created using the symbols from the _symbols_ array and combined into one array (of match pairs) representing all the cards. For each symbol in the symbols array, an object is created representing a card with that symbol. The card object has properties such as _kind_ (the symbol on the card), _up_ (whether or not the card is face-up), and _found_ (whether or not the card has been matched).
 
    ```
-      symbols = ['emoji_nature', 'emoji_symbols', 'outdoor_grill', 'deck', 'cake', 'emoji_food_beverage', 'hot_tub', 'two_wheeler'];
+   symbols = ['emoji_nature', 'emoji_symbols', 'outdoor_grill', 'deck', 'cake', 'emoji_food_beverage', 'hot_tub', 'two_wheeler'];
 
-      let cardsOne = this.symbols.map(symbol => ({ kind: symbol, up: false, found: false }));
-      let cartsTwo = this.symbols.map(symbol => ({ kind: symbol, up: false, found: false }));
+   let cardsOne = this.symbols.map(symbol => ({ kind: symbol, up: false, found: false }));
+   let cartsTwo = this.symbols.map(symbol => ({ kind: symbol, up: false, found: false }));
 
-      this.cards = [...cardsOne, ...cartsTwo]; // double the cards
+   this.cards = [...cardsOne, ...cartsTwo]; // double the cards
    ```
 
 
@@ -46,38 +46,38 @@ A memory matching card game where the player flips over two cards at a time to r
 
    The `setCardClass` takes a card as an argument and returns a string representing the CSS classes that should be applied to that card based on its current state. For example, if a card is face-up and matched, it will have the classes “card”, “visible”, and “matched”.
 
-      - Style
+   - Style
 
-      ```
-      setCardClass(card: Card): string {
-         return ['card',
-            card.kind,
-            card.up ? 'visible' : null,
-            card.found ? 'matched' : null].join(' ');
-      }
-      ```
+   ```
+   setCardClass(card: Card): string {
+      return ['card',
+         card.kind,
+         card.up ? 'visible' : null,
+         card.found ? 'matched' : null].join(' ');
+   }
+   ```
 
-      - Logic
+   - LogicW
 
-      ```
-      runCard(card: Card, index: number) {
-         if (
-            this.isBusy == false
-            && !this.cardsMatched.includes(card)
-            && card !== this.cardToCheck
-         ) {
-            if (this.flipCount !== undefined) this.flipCount += 1;
-            this.cards[index].up = true;
-            if (!this.cardToCheck) {
-               this.cardToCheck = card;
-            } else {
-               card.kind == this.cardToCheck.kind ?
-                  this.isMatch(card) : this.isMix(card);
-            }
-
+   ```
+   runCard(card: Card, index: number) {
+      if (
+         this.isBusy == false
+         && !this.cardsMatched.includes(card)
+         && card !== this.cardToCheck
+      ) {
+         if (this.flipCount !== undefined) this.flipCount += 1;
+         this.cards[index].up = true;
+         if (!this.cardToCheck) {
+            this.cardToCheck = card;
+         } else {
+            card.kind == this.cardToCheck.kind ?
+               this.isMatch(card) : this.isMix(card);
          }
+
       }
-      ```
+   }
+   ```
 
 - Calculating the result of the game
 
