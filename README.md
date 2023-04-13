@@ -57,7 +57,7 @@ A memory matching card game where the player flips over two cards at a time to r
    }
    ```
 
-   - LogicW
+   - Logic
 
    ```
    runCard(card: Card, index: number) {
